@@ -1,0 +1,39 @@
+﻿@{
+
+    ViewData["Title"] = "Lista Motocykli";
+}
+@model Motors;
+<ul class="list-group">
+    @{
+        foreach (Motors motors in ViewBag.Motors)
+        {
+        <li class="list-group-item" style="width: 28rem;">
+            <div>
+                <p>@motors.Name @if (motors.Status != 0) {@motors.Value <text>zł</text> } else { <text>Sprzedano!</text> } </p>
+                <div style="height:50px">
+                    <form method="post" asp-action="Get" asp-controller="Motorcycle" style="float:left" class="ml-2">
+                        <input type="hidden" value="@motors.IdMoto" asp-for="IdMoto" />
+                        <button class="btn btn-primary" type="submit">Zobacz</button>
+                    </form>
+                    @if(motors.Status != 0)
+                    {
+                        <form method="post" asp-action="Sold" asp-controller="Motorcycle" style="float:left" class="ml-2">
+                            <input type="hidden" value="@motors.IdMoto" asp-for="IdMoto" />
+                            <input type="hidden" value="@motors.Value" asp-for="Value" />
+                            <button class="btn btn-success" type="submit">Zakup</button>
+                        </form>
+                    }
+                    <form method="post" asp-action="Edit" asp-controller="Motorcycle" style="float:left" class="ml-2">
+                        <input type="hidden" value="@motors.IdMoto" asp-for="IdMoto" />
+                        <button class="btn btn-warning" type="submit">Edytuj</button>
+                    </form>
+                    <form method="post" asp-action="Delete" asp-controller="Motorcycle" style="float:left" class="ml-2">
+                        <input type="hidden" value="@motors.IdMoto" asp-for="IdMoto" />
+                        <button class="btn btn-danger" type="submit">Usuń</button>
+                    </form>
+                </div>
+            </div>
+        </li>
+                }
+                }
+        </ul>

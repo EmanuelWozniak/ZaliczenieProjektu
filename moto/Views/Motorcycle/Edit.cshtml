@@ -1,0 +1,22 @@
+﻿@{
+
+    ViewData["Title"] = "Edycja";
+}
+@model Motors;
+
+<form method="post" asp-action="Editing" asp-controller="Motorcycle">
+    <div class="form-group">
+        <label for="name">Nazwa motocykla</label>
+        <input type="text" class="form-control" id="name" value="@ViewBag.Motor.Name" asp-for="Name">
+    </div>
+    <div class="form-group">
+        <label for="description">Nazwa motocykla</label>
+        <input type="text" class="form-control" id="description" value="@ViewBag.Motor.Description" asp-for="Description">
+    </div>
+    <div class="form-group">
+        <label for="value">Nazwa motocykla</label>
+        <input type="text" class="form-control" id="value" value="@ViewBag.Motor.Value" asp-for="Value">
+    </div>
+    <input type="hidden" asp-for="IdMoto" value="@ViewBag.Motor.IdMoto" />
+    <button class="btn btn-primary" type="submit">Edytuj</button>
+</form>

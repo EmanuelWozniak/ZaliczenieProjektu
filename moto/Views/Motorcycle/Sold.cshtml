@@ -1,0 +1,19 @@
+﻿@{
+
+    ViewData["Title"] = "Lista Motocykli";
+}
+@model Orders;
+
+<form method="post" asp-action="Buy" asp-controller="Motorcycle">
+    <div class="form-group">
+        <label for="firstName">Imię</label>
+        <input type="text" class="form-control" id="firstName" placeholder="Wpisz imię" asp-for="FirstName">
+    </div>
+    <div class="form-group">
+        <label for="lastName">Imię</label>
+        <input type="text" class="form-control" id="lastName" placeholder="Wpisz nazwisko" asp-for="LastName">
+    </div>
+    <input type="hidden" class="form-control" id="value" asp-for="Value" value="@ViewBag.MotoValue">
+    <input type="hidden" class="form-control" id="idMoto" asp-for="IdMoto" value="@ViewBag.MotoId">
+    <button class="btn btn-primary" type="submit">Zakup</button>
+</form>

@@ -1,0 +1,21 @@
+﻿@{
+
+    ViewData["Title"] = "Dodawanie Motocykla";
+}
+@model Motors;
+
+<form method="post" asp-action="Add" asp-controller="Motorcycle">
+    <div class="form-group">
+        <label for="name">Nazwa motocykla</label>
+        <input type="text" class="form-control" id="name" placeholder="Wpisz nazwę motocykla" asp-for="Name">
+    </div>
+    <div class="form-group">
+        <label for="description">Opis</label>
+        <input type="text" class="form-control" id="description" placeholder="Dodaj opis" asp-for="Description">
+    </div>
+    <div class="form-group">
+        <label for="value">Kwota</label>
+        <input type="text" class="form-control" id="value" placeholder="Wpisz kwotę" asp-for="Value">
+    </div>
+    <button class="btn btn-primary" type="submit">Dodaj</button>
+</form>

@@ -1,0 +1,22 @@
+﻿@{
+
+    ViewData["Title"] = "Widok motocykla";
+}
+@model Motors;
+
+<div class="card" style="width: 28rem;">
+    <div class="card-body">
+        <h5 class="card-title">@ViewBag.Motor.Name</h5>
+        <h6 class="card-subtitle mb-2 text-muted">@ViewBag.Motor.Value zł</h6>
+        <p class="card-text">@ViewBag.Motor.Description</p>
+        @if (ViewBag.Motor.Status != 0)
+        {
+            <form method="post" asp-action="Sold" asp-controller="Motorcycle" class="card-link">
+                <input type="hidden" value="@ViewBag.Motor.IdMoto" asp-for="IdMoto" />
+                <input type="hidden" value="@ViewBag.Motor.Value" asp-for="Value" />
+                <button class="btn btn-success" type="submit">Zakup</button>
+            </form>
+        }
+
+    </div>
+</div>
